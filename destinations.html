@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Lesotho | Destinations</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: lightblue;
+            color: black;
+        }
+
+        nav {
+            background-color: lightblue;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav h2 {
+            color: white;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+        .hero {
+            background-color: lightgray;
+            text-align: center;
+            padding: 40px;
+        }
+
+        section {
+            padding: 25px;
+        }
+
+        .search {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        input, select {
+            padding: 10px;
+            margin: 10px;
+            width: 250px;
+            max-width: 90%;
+        }
+
+        .destinations {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .place {
+            background-color: whitesmoke;
+            width: 300px;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .place img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .place h2 {
+            color: green;
+        }
+
+        .place a, .feature a {
+            display: inline-block;
+            background-color: green;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .place a:hover, .feature a:hover {
+            background-color: darkgreen;
+        }
+
+        .feature {
+            background-color: lightblue;
+            text-align: center;
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        #noResults {
+            display: none;
+            text-align: center;
+            color: red;
+        }
+
+        footer {
+            background-color: darkblue;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        @media (max-width: 600px) {
+            nav a {
+                display: block;
+                margin: 10px;
+            }
+
+            .place {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <h2>Discover Lesotho</h2>
+
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact / Booking</a>
+    </nav>
+</header>
+
+<main>
+
+    <section class="hero">
+        <h1>Destinations and Activities</h1>
+        <p>Find beautiful places and plan your next adventure in Lesotho.</p>
+    </section>
+
+    <section>
+
+        <div class="search">
+            <h2>Find a Destination</h2>
+
+            <label for="search">Search destinations:</label><br>
+            <input type="text" id="search"
+                   placeholder="Try Semonkong or mountains">
+
+            <br>
+
+            <label for="category">Choose a category:</label><br>
+            <select id="category">
+                <option value="all">All experiences</option>
+                <option value="nature">Nature</option>
+                <option value="culture">Culture</option>
+                <option value="adventure">Adventure</option>
+            </select>
+        </div>
+
+        <div class="destinations" id="destinationList">
+
+            <div class="place" data-category="nature"
+                 data-name="maletsunyane falls semonkong waterfall">
+                <img src="maletsunyane.webp"
+                     alt="Waterfall">
+
+                <h2>Maletsunyane Falls</h2>
+                <p>Explore the famous waterfall near Semonkong and enjoy the surrounding highlands.</p>
+                <p>Category: Nature</p>
+                <a href="contact.html">Ask about a visit</a>
+            </div>
+
+            <div class="place" data-category="adventure"
+                 data-name="afriski mountains hiking skiing adventure">
+                <img src="snowy mountain.webp"
+                     alt="Snowy mountains">
+
+                <h2>Mountain Adventures</h2>
+                <p>Enjoy scenic walks and seasonal mountain activities. Check local conditions first.</p>
+                <p>Category: Adventure</p>
+                <a href="contact.html">Plan an activity</a>
+            </div>
+
+            <div class="place" data-category="culture"
+                 data-name="thaba bosiu history culture heritage">
+                <img src="architecture.webp"
+                     alt="Buildings and architecture">
+
+                <h2>Culture and Heritage</h2>
+                <p>Learn about Basotho history, traditions, crafts and community life.</p>
+                <p>Category: Culture</p>
+                <a href="about.html">Learn more</a>
+            </div>
+
+            <div class="place" data-category="nature"
+                 data-name="katse dam water landscape">
+                <img src="water and land.webp"
+                     alt="Water and landscape">
+
+                <h2>Katse Dam Area</h2>
+                <p>Enjoy wide water views and impressive mountain scenery.</p>
+                <p>Category: Nature</p>
+                <a href="contact.html">Ask about a visit</a>
+            </div>
+
+            <div class="place" data-category="adventure"
+                 data-name="pony trekking horse riding countryside">
+                <img src="horse riding.webp"
+                     alt="Horse outdoors">
+
+                <h2>Pony Trekking</h2>
+                <p>Ask a local guide about safe and responsible pony trekking experiences.</p>
+                <p>Category: Adventure</p>
+                <a href="contact.html">Ask about a ride</a>
+            </div>
+
+            
+
+               
+        
+              
+            </div>
+
+        </div>
+
+        <p id="noResults">
+            No destinations found. Try another word or category.
+        </p>
+
+        <div class="feature">
+            <h2>Need Help Planning?</h2>
+            <p>Send us your travel dates and the number of visitors.</p>
+            <a href="contact.html">Open Booking Form</a>
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>Copyright 2026 Discover Lesotho</p>
+    <p>Explore respectfully. Leave nature beautiful.</p>
+</footer>
+
+<script>
+    var searchBox = document.getElementById("search");
+    var categoryBox = document.getElementById("category");
+    var places = document.querySelectorAll(".place");
+    var noResults = document.getElementById("noResults");
+
+    function searchPlaces() {
+        var searchText = searchBox.value.toLowerCase();
+        var selectedCategory = categoryBox.value;
+        var found = 0;
+
+        for (var i = 0; i < places.length; i++) {
+            var name = places[i].getAttribute("data-name");
+            var category = places[i].getAttribute("data-category");
+
+            if (name.includes(searchText) &&
+                (selectedCategory == "all" ||
+                 category == selectedCategory)) {
+
+                places[i].style.display = "block";
+                found++;
+            } else {
+                places[i].style.display = "none";
+            }
+        }
+
+        if (found == 0) {
+            noResults.style.display = "block";
+        } else {
+            noResults.style.display = "none";
+        }
+    }
+
+    searchBox.addEventListener("input", searchPlaces);
+    categoryBox.addEventListener("change", searchPlaces);
+</script>
+
+</body>
+</html>

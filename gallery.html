@@ -1,0 +1,275 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Lesotho | Gallery</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: lightblue;
+            color: black;
+        }
+
+        nav {
+            background-color: lightblue;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav h2 {
+            color: white;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+        .hero {
+            background-color: lightgray;
+            text-align: center;
+            padding: 40px;
+        }
+
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .photo {
+            background-color: whitesmoke;
+            width: 280px;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .photo img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .photo p {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        button {
+            background-color: green;
+            color: white;
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkgreen;
+        }
+
+        .preview {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            color: white;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .preview img {
+            max-width: 90%;
+            max-height: 70%;
+        }
+
+        footer {
+            background-color: darkblue;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        @media (max-width: 600px) {
+            nav a {
+                display: block;
+                margin: 10px;
+            }
+
+            .photo {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <h2>Discover Lesotho</h2>
+
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact / Booking</a>
+    </nav>
+</header>
+
+<main>
+
+    <section class="hero">
+        <h1>Views to Remember</h1>
+        <p>Explore beautiful scenery and places through our photo gallery.</p>
+    </section>
+
+    <section>
+        <h2>Our Photo Gallery</h2>
+        <p>Click a picture to see a larger preview.</p>
+        <p>Connect to the internet to load the pictures.</p>
+
+        <div class="gallery">
+
+            <button class="photo" onclick="showPhoto(0)">
+                <img src="Mountain peaks.webp" alt="Mountain peaks">
+                <p>Mountain Peaks</p>
+            </button>
+
+            <button class="photo" onclick="showPhoto(1)">
+                <img src="maletsunyane.webp" alt="Waterfall">
+                <p>Waterfall</p>
+            </button>
+
+            <button class="photo" onclick="showPhoto(2)">
+                <img src="snowy Mountain.webp" alt="Snowy mountains">
+                <p>Snowy Mountains</p>
+            </button>
+
+            <button class="photo" onclick="showPhoto(3)">
+                <img src="water and land.webp" alt="Water and landscape">
+                <p>Water and Landscape</p>
+            </button>
+
+            <button class="photo" onclick="showPhoto(4)">
+                <img src="Horse Riding.webp" alt="Horse outdoors">
+                <p>Horse Riding</p>
+            </button>
+
+            <button class="photo" onclick="showPhoto(5)">
+                <img src="architecture.webp" alt="Buildings and architecture">
+                <p>Architecture</p>
+            </button>
+
+        </div>
+
+        <button onclick="previousPhoto()">Previous</button>
+        <button onclick="nextPhoto()">Next</button>
+    </section>
+
+    <div class="preview" id="preview">
+        <h2 id="photoTitle">Photo Preview</h2>
+        <img id="largePhoto" src="" alt="Larger gallery photo">
+        <p id="photoCaption"></p>
+        <button onclick="closePhoto()">Close Photo</button>
+        <button onclick="previousPhoto()">Previous</button>
+        <button onclick="nextPhoto()">Next</button>
+    </div>
+
+</main>
+
+<footer>
+    <p>Copyright 2026 Discover Lesotho</p>
+    <p>Explore respectfully. Leave nature beautiful.</p>
+</footer>
+
+<script>
+    var photos = [
+        {
+            image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=85",
+            title: "Mountain Peaks"
+        },
+        {
+            image: "https://images.unsplash.com/photo-1432406002117-08a8c9e7f0a4?auto=format&fit=crop&w=1400&q=85",
+            title: "Waterfall"
+        },
+        {
+            image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1400&q=85",
+            title: "Snowy Mountains"
+        },
+        {
+            image: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=85",
+            title: "Water and Landscape"
+        },
+        {
+            image: "https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=1400&q=85",
+            title: "Horse Riding"
+        },
+        {
+            image: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1400&q=85",
+            title: "Architecture"
+        }
+    ];
+
+    var currentPhoto = 0;
+
+    function showPhoto(number) {
+        currentPhoto = number;
+        updatePhoto();
+
+        document.getElementById("preview").style.display = "flex";
+    }
+
+    function updatePhoto() {
+        document.getElementById("largePhoto").src = photos[currentPhoto].image;
+        document.getElementById("photoTitle").innerHTML = photos[currentPhoto].title;
+        document.getElementById("photoCaption").innerHTML = photos[currentPhoto].title;
+    }
+
+    function nextPhoto() {
+        currentPhoto++;
+
+        if (currentPhoto >= photos.length) {
+            currentPhoto = 0;
+        }
+
+        updatePhoto();
+        document.getElementById("preview").style.display = "flex";
+    }
+
+    function previousPhoto() {
+        currentPhoto--;
+
+        if (currentPhoto < 0) {
+            currentPhoto = photos.length - 1;
+        }
+
+        updatePhoto();
+        document.getElementById("preview").style.display = "flex";
+    }
+
+    function closePhoto() {
+        document.getElementById("preview").style.display = "none";
+    }
+</script>
+
+</body>
+</html>
